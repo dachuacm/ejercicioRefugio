@@ -2,7 +2,7 @@ package app_refugio.modelo;
 
 import java.time.LocalDate;
 
-public class Persona {
+public abstract class Persona implements Evaluable<Persona>{
 
 protected String nombre;
 private String apellido;

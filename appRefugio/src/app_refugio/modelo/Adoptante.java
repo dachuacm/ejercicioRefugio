@@ -1,5 +1,8 @@
 package app_refugio.modelo;
 
+import java.time.LocalDate;
+import java.time.Period;
+
 public class Adoptante extends Persona {
 
     private double ingresoMensual; 
@@ -23,6 +26,18 @@ public class Adoptante extends Persona {
 		this.tipoCasa = tipoCasa;
 	}
 	
-
+   public void saludar(){
+       
+       System.out.println("Soy el adoptante "+ nombre
+	      
+	      + "\nCURP: "+ getCURP());
+   }
+   @Override
+   public boolean evaluarse() {
+	return ingresoMensual>20000 && tipoCasa.ordinal()<TipoCasa.PALOMAR.ordinal();
+   }
     
+   public boolean evaluar(Persona p) {
+	return Period.between(LocalDate.now(), getFechaNac()).getYears()>18;
+   }
 }
